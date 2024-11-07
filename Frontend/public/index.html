@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .account-info-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+        }
+    
+        .account-info-card h3 {
+            text-align: center;
+            color: #495057;
+            margin-bottom: 20px;
+        }
+    
+        .account-info-card p {
+            font-size: 16px;
+            color: #495057;
+            margin: 10px 0;
+        }
+    
+        .account-info-card .info-label {
+            font-weight: bold;
+            color: #6c757d;
+        }
+    
+        .account-info-card .info-value {
+            color: #343a40;
+        }
+    
+        .info-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+    
+        .info-item {
+            width: 45%;
+            min-width: 200px; /* Prevent too narrow items on smaller screens */
+            box-sizing: border-box;
+        }
+    
+        /* Make sure on smaller screens it scales properly */
+        @media (max-width: 600px) {
+            .info-item {
+                width: 100%; /* Stack items vertically on small screens */
+            }
+    
+            .account-info-card {
+                padding: 10px; /* Reduce padding for small screens */
+                max-width: 90%; /* Allow it to be smaller on mobile */
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="page-container">
+        <div class="login-container">
+            <div class="header">
+                <div class="circles">
+                    <div class="circle2"></div>
+                    <div class="circle1"></div>
+                    <div class="circle"></div>
+                </div>
+                <div style="height: 40px;"></div>
+                <h1>Login Page</h1>
+                <p id="userNameDisplay">Name: </p>
+            </div>
+
+            <div class="form-container">
+                <input type="text" id="username" placeholder="Username" required>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword()">Show</span> 
+                </div>
+
+                <button onclick="submitLogin()" type="button" id="loginButton">Login</button>
+                <p id="message"></p>
+            </div>
+
+            <!-- Account Info Section -->
+            <div class="result-container" id="accountInfo" style="display: none;"></div>
+        </div>
+
+        <!-- Login Fail Popup -->
+        <div id="loginFailPopup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <strong><p>Login Page</p></strong>
+                <br>
+                <p>Login failed! Please try again.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
